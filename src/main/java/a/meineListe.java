@@ -22,5 +22,5 @@ public class meineListe {
 
         // Rückgabe der sortierten Liste
         return new ArrayList<>(mergedSet);
-    }
+    } 
 }
