@@ -3,6 +3,7 @@ package a;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
@@ -48,8 +49,43 @@ class meineListeTest {
         listExpected.add(4);
         listExpected.add(5);
 		
-		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
-		
+		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));	
 	}
+	
+	@Test
+	void test2() {
+		List<Integer> list1 = Arrays.asList(5, 3, 9, 1);
+        List<Integer> list2 = Arrays.asList(8, 6, 5, 3);      
+        List<Integer> listExpected = Arrays.asList(1, 3, 5, 6, 8, 9);
 
+		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
+	}
+	
+	
+	@Test
+	void testnull() {
+		List<Integer> list1 = null;
+        List<Integer> list2 = Arrays.asList(8, 6, 5, 3);      
+        List<Integer> listExpected = Arrays.asList(3, 5, 6, 8);
+
+		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
+	}
+	
+	@Test
+	void testnull2() {
+		List<Integer> list1 = Arrays.asList(5, 3, 9, 1);
+        List<Integer> list2 = null;    
+        List<Integer> listExpected = Arrays.asList(1, 3, 5, 9);
+
+		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
+	}
+	
+	@Test
+	void testnull3() {
+		List<Integer> list1 = null;
+        List<Integer> list2 = null;      
+        List<Integer> listExpected = null;
+
+		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
+	}
 }

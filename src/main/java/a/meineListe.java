@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class meineListe {
 	
@@ -15,10 +16,24 @@ public class meineListe {
 	 * @return sortierte zusmammengefügte Liste ohne Duplikate
 	 */
     public List<Integer> mergeAndSortLists(List<Integer> list1, List<Integer> list2) {
-        Set<Integer> mergedSet = new HashSet<>(list1);
+/*        if (list1 == null && list2 == null) {
+            throw new IllegalArgumentException("Beide Eingabelisten dürfen nicht null sein.");
+        }
+*/
+		if (list1 == null && list2 == null) {
+			return null;
+		}
+    	
+        // Behandle null als leere Listen
+        if (list1 == null) list1 = new ArrayList<>();
+        if (list2 == null) list2 = new ArrayList<>();
+
+
+        // Zusammenführen der Listen und Entfernen von Duplikaten
+        Set<Integer> mergedSet = new TreeSet<>(list1);
         mergedSet.addAll(list2);
-        List<Integer> mergedList = new ArrayList<>(mergedSet);
-        Collections.sort(mergedList);
-        return mergedList;
+
+        // Rückgabe der sortierten Liste
+        return new ArrayList<>(mergedSet);
     }
 }
