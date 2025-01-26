@@ -64,7 +64,7 @@ class meineListeTest {
 	
 	@Test
 	void testnull() {
-		List<Integer> list1 = null;
+		List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = Arrays.asList(8, 6, 5, 3);      
         List<Integer> listExpected = Arrays.asList(3, 5, 6, 8);
 
@@ -74,7 +74,7 @@ class meineListeTest {
 	@Test
 	void testnull2() {
 		List<Integer> list1 = Arrays.asList(5, 3, 9, 1);
-        List<Integer> list2 = null;    
+        List<Integer> list2 = new ArrayList<>();    
         List<Integer> listExpected = Arrays.asList(1, 3, 5, 9);
 
 		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
@@ -82,9 +82,9 @@ class meineListeTest {
 	
 	@Test
 	void testnull3() {
-		List<Integer> list1 = null;
-        List<Integer> list2 = null;      
-        List<Integer> listExpected = null;
+		List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();      
+        List<Integer> listExpected = new ArrayList<>();
 
 		assertEquals(listExpected, new meineListe().mergeAndSortLists(list1, list2));
 	}
