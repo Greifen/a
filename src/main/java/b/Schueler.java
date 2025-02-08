@@ -3,6 +3,10 @@ package b;
 public class Schueler {
 	private int alter;
 	private String name;
+	
+	/**
+	 * 1.Note ist die Englischnote, 2. Note ist die Mathematiknote, 3. Note ist die Biologienote
+	 */
 	private int[] noten;
 
 	/**Dies ist der Konstruktor um einen Schüler zu erzeugen.

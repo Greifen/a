@@ -13,7 +13,10 @@ public class Schulklasse {
 	public static void main(String[] args) {
 		Schulklasse schulklasse = erzeugeKlasse();
 		schülernamenAusgabe(schulklasse);
+		System.out.println();
 		notenAusgabe(schulklasse);
+		System.out.println();
+		mathenotenAusgabe(schulklasse);
 	}
 
 	/**
@@ -51,7 +54,7 @@ public class Schulklasse {
 	}
 	
 	/**
-	 * Lasse alle Noten ausgeben (spezial: alle Mathenoten)
+	 * Lasse alle Noten ausgeben
 	 * @param schulklasse
 	 */
 	private static void notenAusgabe(Schulklasse schulklasse) {
@@ -61,14 +64,25 @@ public class Schulklasse {
 			
 			int[] notenliste = schuelerliste[i].getNoten();
 			System.out.print(schuelerliste[i].getName()+ ": ");
-			for (int z = 0; z < notenliste.length; z++) {
-				System.out.print(notenliste[z]);
-				if(z<notenliste.length-1) {
-					System.out.print(", ");
-				}
-				
+			for (int z = 0; z < notenliste.length-1; z++) {
+				System.out.print(notenliste[z]+ ", ");
 			}
-			System.out.println();
+			System.out.println(notenliste[notenliste.length-1]);
+		}
+	}
+	
+	/**
+	 * Lasse alle Mathenoten
+	 * @param schulklasse
+	 */
+	private static void mathenotenAusgabe(Schulklasse schulklasse) {
+		Schueler[] schuelerliste = schulklasse.getSchuelerliste();
+		System.out.println("Mathematiknoten der Klasse " + schulklasse.getName() + ": ");
+		for (int i = 0; i < schuelerliste.length; i++) {
+			
+			int[] notenliste = schuelerliste[i].getNoten();
+			System.out.print(schuelerliste[i].getName()+ ": ");
+			System.out.println(notenliste[1]);
 		}
 	}
 
