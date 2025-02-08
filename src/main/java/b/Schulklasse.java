@@ -62,8 +62,11 @@ public class Schulklasse {
 			int[] notenliste = schuelerliste[i].getNoten();
 			System.out.print(schuelerliste[i].getName()+ ": ");
 			for (int z = 0; z < notenliste.length; z++) {
-
-				System.out.print(notenliste[z] + " ");
+				System.out.print(notenliste[z]);
+				if(z<notenliste.length-1) {
+					System.out.print(", ");
+				}
+				
 			}
 			System.out.println();
 		}
