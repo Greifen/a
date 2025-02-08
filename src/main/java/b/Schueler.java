@@ -32,9 +32,9 @@ public class Schueler {
 //		name = n;
 //	}
 	
-//	public int[] getNoten() {
-//		return noten;
-//	}
+	public int[] getNoten() {
+		return noten;
+	}
 	
 	public void setNoten(int[] n) {
 		noten=n;

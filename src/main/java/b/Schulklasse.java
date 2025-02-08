@@ -10,7 +10,7 @@ public class Schulklasse {
 		schuelerliste = s;
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		Schulklasse schulklasse = erzeugeKlasse();
 		schülernamenAusgabe(schulklasse);
 		notenAusgabe(schulklasse);
@@ -47,6 +47,7 @@ public class Schulklasse {
 		for (int i = 0; i < schuelerliste.length; i++) {
 			System.out.print(schuelerliste[i].getName() + " ");
 		}
+		System.out.println();
 	}
 	
 	/**
@@ -54,8 +55,18 @@ public class Schulklasse {
 	 * @param schulklasse
 	 */
 	private static void notenAusgabe(Schulklasse schulklasse) {
-		// TODO Auto-generated method stub
-		
+		Schueler[] schuelerliste = schulklasse.getSchuelerliste();
+		System.out.println("Noten der Klasse " + schulklasse.getName() + ": ");
+		for (int i = 0; i < schuelerliste.length; i++) {
+			
+			int[] notenliste = schuelerliste[i].getNoten();
+			System.out.print(schuelerliste[i].getName()+ ": ");
+			for (int z = 0; z < notenliste.length; z++) {
+
+				System.out.print(notenliste[z] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	private String getName() {

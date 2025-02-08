@@ -1,14 +1,24 @@
 package bInformatiker;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+
 public class Schulklasse {
 
 	private String name;
-	private Schueler[] schuelerliste;
+	private Set<Schueler> schuelerListe;
 
-	public Schulklasse(String n, Schueler[] s) {
-		name = n;
-		schuelerliste = s;
+
+	public Schulklasse(String name, Set<Schueler> schuelerListe) {
+		super();
+		this.name = name;
+		this.schuelerListe = schuelerListe;
 	}
+
 
 	public static void main(String args[]) {
 		Schulklasse schulklasse = erzeugeKlasse();
@@ -21,20 +31,33 @@ public class Schulklasse {
 	 * @return
 	 */
 	private static Schulklasse erzeugeKlasse() {
-		int[] noten = { 2, 3, 4 };
-		Schueler schueler1 = new Schueler(15, "Karin", noten);
+		Map<String, Map<Integer, Integer>> noten = new HashMap<>();
+		noten.put("Mathematik", new HashMap<>());
+		noten.get("Mathematik").put(1, 2);
+		noten.get("Mathematik").put(2, 3);
+		noten.get("Mathematik").put(3, 4);
+		noten.put("Deutsch", new HashMap<>());
+		noten.get("Deutsch").put(1, 2);
+		noten.get("Deutsch").put(2, 3);
+		noten.get("Deutsch").put(3, 4);
+		Schueler schueler1 = new Schueler(10,"Karin",noten);
 
-		int[] noten2 = { 4, 5, 4 };
-		Schueler schueler2 = new Schueler(15, "Torsten", noten2);
-
-		int[] noten3 = { 4, 5, 4 };
-		Schueler schueler3 = new Schueler(15, "Maria", noten3);
-
-		int[] noten4 = { 3, 3, 2 };
-		Schueler schueler4 = new Schueler(15, "Frida", noten4);
-
-		Schueler[] schuelerliste = { schueler1, schueler2, schueler3, schueler4 };
-		return new Schulklasse("10b", schuelerliste);
+		Map<String, Map<Integer, Integer>> noten2 = new HashMap<>();
+		noten.put("Mathematik", new HashMap<>());
+		noten.get("Mathematik").put(1, 2);
+		noten.get("Mathematik").put(2, 3);
+		noten.get("Mathematik").put(3, 4);
+		noten.put("Deutsch", new HashMap<>());
+		noten.get("Deutsch").put(1, 2);
+		noten.get("Deutsch").put(2, 3);
+		noten.get("Deutsch").put(3, 4);
+		Schueler schueler2 = new Schueler(10,"Anton",noten2);
+		
+		//Treeset aber wie sortieren nach Namen?
+		Set<Schueler> schuelerListe = new HashSet<>();
+		schuelerListe.add(schueler1);
+		schuelerListe.add(schueler2);
+		return new Schulklasse("10b", schuelerListe);
 	}
 	
 	/**
@@ -42,11 +65,13 @@ public class Schulklasse {
 	 * @param schulklasse
 	 */
 	private static void schülernamenAusgabe(Schulklasse schulklasse) {
-		Schueler[] schuelerliste = schulklasse.getSchuelerliste();
+		Set<Schueler> schuelerliste = schulklasse.getSchuelerliste();
 		System.out.print("Schüler der Klasse " + schulklasse.getName() + ": ");
-		for (int i = 0; i < schuelerliste.length; i++) {
-			System.out.print(schuelerliste[i].getName() + " ");
+		
+		for (Schueler schueler : schuelerliste) {
+			System.out.print(schueler.getName() + " ");
 		}
+
 	}
 	
 	/**
@@ -62,8 +87,8 @@ public class Schulklasse {
 		return name;
 	}
 
-	private Schueler[] getSchuelerliste() {
-		return schuelerliste;
+	private Set<Schueler> getSchuelerliste() {
+		return schuelerListe;
 	}
 
 }
