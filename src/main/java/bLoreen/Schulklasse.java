@@ -1,4 +1,4 @@
-package b;
+package bLoreen;
 
 public class Schulklasse {
 
