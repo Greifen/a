@@ -13,12 +13,12 @@ public class Schulklasse {
 	public static void main(String[] args) {
 		Schulklasse schulklasse = erzeugeKlasse();
 		schülernamenAusgabe(schulklasse);
-		System.out.println();
 		notenAusgabe(schulklasse);
-		System.out.println();
 		mathenotenAusgabe(schulklasse);
 	}
 
+	//TODO: Methoden doch lieber in nicht statisch sondern mit Objekt schulklasse aufrufen
+	
 	/**
 	 * Erzeuge Schülerobjekte für die Klasse 10a
 	 * @return
@@ -51,6 +51,7 @@ public class Schulklasse {
 			System.out.print(schuelerliste[i].getName() + " ");
 		}
 		System.out.println();
+		System.out.println();
 	}
 	
 	/**
@@ -69,6 +70,7 @@ public class Schulklasse {
 			}
 			System.out.println(notenliste[notenliste.length-1]);
 		}
+		System.out.println();
 	}
 	
 	/**
@@ -84,6 +86,7 @@ public class Schulklasse {
 			System.out.print(schuelerliste[i].getName()+ ": ");
 			System.out.println(notenliste[1]);
 		}
+		System.out.println();
 	}
 
 	private String getName() {

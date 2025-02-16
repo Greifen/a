@@ -3,10 +3,10 @@ package bgenaueineNote;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * Klasse zur Verwaltung einer Schulklasse mit Schülern.
- */
-class Schulklasse {
+ /**
+   * Klasse zur Verwaltung einer Schulklasse mit Schülern.
+   */
+public class Schulklasse {
     private String name;
     private Set<Schueler> schuelerListe;
 

@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 class Schueler implements Comparable<Schueler> {
     private String name;
     private LocalDate geburtsdatum;
-    private Map<String, Integer> noten;
+    private Map<Fach, Integer> noten;
 
     /**
      * Konstruktor für einen Schüler mit Noten.
@@ -18,7 +18,7 @@ class Schueler implements Comparable<Schueler> {
      * @param geburtsdatum Geburtsdatum im Format "yyyy-MM-dd"
      * @param noten Noten als Map von Fächern mit einer Note
      */
-    public Schueler(String name, String geburtsdatum, Map<String, Integer> noten) {
+    public Schueler(String name, String geburtsdatum, Map<Fach, Integer> noten) {
         this.name = name;
         this.geburtsdatum = LocalDate.parse(geburtsdatum, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         this.noten = noten != null ? new HashMap<>(noten) : new HashMap<>();
@@ -45,12 +45,15 @@ class Schueler implements Comparable<Schueler> {
         return Period.between(geburtsdatum, LocalDate.now()).getYears();
     }
     
-    public void setNote(String fach, int note) {
+    public void setNote(Fach fach, int note) {
+        if (note < 1 || note > 6) {
+            throw new IllegalArgumentException("Die Note muss zwischen 1 und 6 liegen.");
+        }
         noten.put(fach, note);
     }
     
-    public Map<String, Integer> getNoten() {
-        return noten;
+    public Map<Fach, Integer> getNoten() {
+        return Collections.unmodifiableMap(noten);
     }
     
     @Override
